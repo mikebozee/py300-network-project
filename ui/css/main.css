@@ -32,6 +32,14 @@ section#devices {
     max-width: 600px;
 }
 
+h2.component-heading {
+    text-transform: uppercase;
+    color: #222;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
 
 
 /* BOOTSTRAP OVERRIDES
@@ -39,7 +47,8 @@ section#devices {
 
 .panel {
     border: none;
-    box-shadow: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,.03),
+                0 1px 3px rgba(0,0,0,.02);
 }
 
 .panel-group .panel+.panel {
@@ -74,9 +83,7 @@ section#devices {
 }
 
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body {
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: #ddd;
+    border: none;
 }
 
 .panel-body p {
@@ -89,6 +96,10 @@ a.list-group-item:last-child {
 
 a.list-group-item {
     position: relative;
+    border: none;
+    margin: 2px 0;
+    background-color: #fff;
+    color: #222 !important;
 }
 
 a.list-group-item::after {
