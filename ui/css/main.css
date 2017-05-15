@@ -9,7 +9,7 @@ html {
 
 body {
     margin: 0;
-    padding: 50px;
+    padding: 0;
     box-sizing: border-box;
     background-color: #f2f5f7;
     font-family: 'Roboto', Arial, sans-serif;
@@ -22,6 +22,13 @@ body * {
 
 
 
+/* NAV STRIP
+==============================*/
+
+
+
+
+
 /* DEVICE TABLE
 ==============================*/
 
@@ -29,15 +36,18 @@ body * {
 
 section#devices {
     margin: 0 auto;
-    max-width: 600px;
+    display: block;
 }
 
 h2.component-heading {
-    text-transform: uppercase;
     color: #222;
-    font-size: 24px;
-    font-weight: 900;
-    margin: 20px 0;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 20px 0 10px 0;
+}
+
+#mb-main {
+    padding: 0 15px;
 }
 
 
@@ -100,6 +110,9 @@ a.list-group-item {
     margin: 2px 0;
     background-color: #fff;
     color: #222 !important;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 15px 20px;
 }
 
 a.list-group-item::after {
@@ -108,8 +121,24 @@ a.list-group-item::after {
     position: absolute;
     top: 50%;
     right: 15px;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
     transform: translate(0, -50%);
 }
 
+a.list-group-item span.label {
+    margin-left: 15px;
+    font-size: 65%;
+    padding: .3em .6em;
+}
+
+.navbar-default {
+    background-image: none;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.03),
+                0 1px 3px rgba(0,0,0,.02);
+}
 
 
