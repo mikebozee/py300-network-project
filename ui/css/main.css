@@ -141,4 +141,9 @@ a.list-group-item span.label {
                 0 1px 3px rgba(0,0,0,.02);
 }
 
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 
