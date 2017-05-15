@@ -147,3 +147,71 @@ a.list-group-item span.label {
 }
 
 
+
+/* COUNTRIES TABLE
+==============================*/
+
+table.mb-countries {
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+table.mb-countries th, td {
+    box-shadow: 0 1px 4px rgba(0,0,0,.03),
+                0 1px 3px rgba(0,0,0,.02);
+}
+
+table.mb-countries th {
+    background-color: #fff;
+    text-transform: uppercase;
+}
+
+table.mb-countries td {
+    cursor: pointer;
+}
+
+table.mb-countries td,
+.mb-countries>tbody>tr>td,
+.mb-countries>tbody>tr>th,
+.mb-countries>tfoot>tr>td,
+.mb-countries>tfoot>tr>th,
+.mb-countries>thead>tr>td,
+.mb-countries>thead>tr>th {
+    border: none;
+    font-weight: 900;
+}
+
+span.mb-country-status {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+table.mb-countries tr.success,
+table.mb-countries td.success,
+span.mb-country-status-success {
+    color: #3c763d;
+}
+
+table.mb-countries tr.warning,
+table.mb-countries td.warning,
+span.mb-country-status-warning {
+    color: #8a6d3b;
+}
+
+table.mb-countries tr.danger,
+table.mb-countries td.danger,
+span.mb-country-status-danger {
+    color: #a94442;
+}
+
+
+
+
+
+
+
+
+
+
+
+
