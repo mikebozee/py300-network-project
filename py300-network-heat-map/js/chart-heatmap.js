@@ -149,22 +149,22 @@ Highcharts.chart('container', {
             events: {
                 click: function (event) {
                     // server that sends ping
-                    var fromServer = event.point.series.yAxis.categories[event.point.y];
+                    fromServer = event.point.series.yAxis.categories[event.point.y];
                     // server that receives ping
-                    var toServer = event.point.series.xAxis.categories[event.point.x];
+                    toServer = event.point.series.xAxis.categories[event.point.x];
                     // server relationship, for line chart title
-                    var servers = fromServer + ' ' + toServer
+                    servers = fromServer + ' ' + toServer
                     // populate alert, based on server relationship clicked on (testing purposes only)
                     var str = servers + ' line chart to show below (alert for testing only)';
                     // alert(str);
                     // populate line chart, based on server relationship clicked on
                     var theLineChart = fromServer + toServer;
                     // get color of heat map tile
-                    var theColor = event.point.color;
+                    window.theColor = event.point.color;
                     // get new color, for line chart stroke outline (temporary)
                     var theColorStrokeTemp = theColor.slice(4).split(',');
                     // get new color, for line chart stroke outline
-                    var theColorStroke = 'rgba' + theColorStrokeTemp[0] + ',' + theColorStrokeTemp[1] + ',' + theColorStrokeTemp[2] + ',' + '0.8)';
+                    theColorStroke = 'rgba' + theColorStrokeTemp[0] + ',' + theColorStrokeTemp[1] + ',' + theColorStrokeTemp[2] + ',' + '0.8)';
                     // hide all line charts
                     $('.py300-container').hide();
                     // show line chart, based on server relationship clicked on
@@ -179,3 +179,5 @@ Highcharts.chart('container', {
     }
 
 });
+
+console.log(theColor);
