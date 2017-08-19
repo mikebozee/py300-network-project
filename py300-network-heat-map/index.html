@@ -6,263 +6,31 @@
 
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <!-- HIGHCHARTS -->
+    <!-- HIGHCHARTS LINE CHART -->
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <!-- HIGHCHARTS -->
+    <!-- HIGHCHARTS HEAT MAP -->
     <script src="https://code.highcharts.com/modules/heatmap.js"></script>
     <!-- HIGHCHARTS -->
     <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-
-    <style>
-        #container *,
-        #container2 * {
-            font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
-        }
-
-        .highcharts-text-outline {
-            fill: none;
-            stroke: none;
-            stroke-width: 0;
-        }
-
-        .highcharts-plot-border,
-        .highcharts-grid-line {
-            stroke: rgba(0,0,0,0.4);
-            stroke-width: 0;
-        }
-
-        .highcharts-input-group {
-            transform: translate(400, 40);
-        }
-
-        .py300-tooltip {
-            display: block;
-            text-align: center;
-        }
-    </style>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>
 <body>
 
     <div id="container" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto;"></div>
 
-    <div id="container2" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto;"></div>
+    <!-- <div id="container2" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto;"></div> -->
 
-    <script>
-        Highcharts.chart('container', {
-
-            chart: {
-                type: 'heatmap',
-                marginTop: 40,
-                marginBottom: 80,
-                plotBorderWidth: 0
-            },
+    <section id="py300-line-charts"></section>
 
 
-            title: {
-                text: 'NETWORK LATENCY',
-                style: {
-                    color: 'rgba(0,0,0,0.6)',
-                    fontSize: '24px'
-                }
-            },
 
-            xAxis: {
-                categories: ['Brazil', 'Netherlands', 'Singapore'],
-                labels: {
-                    style: {
-                        color: 'rgba(0,0,0,0.6)',
-                        fontSize: '18px'
-                    }
-                }
-            },
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="js/chart-heatmap.js"></script>
 
-            yAxis: {
-                categories: ['Singapore', 'Netherlands', 'Brazil'],
-                title: null,
-                labels: {
-                    style: {
-                        color: 'rgba(0,0,0,0.6)',
-                        fontSize: '18px'
-                    }
-                }
-            },
-
-            colors: [
-                'rgba(96,125,139,0.3)',
-                'rgba(0,150,136,0.4)',
-                'rgba(255,152,0,0.4)',
-                'rgba(244,67,54,0.4)'
-            ],
-
-            colorAxis: {
-                dataClassColor: 'category',
-                dataClasses: [{
-                    name: 'self'
-                }, {
-                    to: 80
-                }, {
-                    from: 81,
-                    to: 99
-                }, {
-                    from: 100
-                }]
-            },
-
-            legend: {
-                align: 'right',
-                layout: 'vertical',
-                margin: 0,
-                verticalAlign: 'top',
-                y: 25,
-                symbolRadius: 0,
-                symbolHeight: 14
-            },
-
-            tooltip: {
-                useHTML: true,
-                formatter: function () {
-                    return '<span class="py300-tooltip">' + this.series.yAxis.categories[this.point.y] + String.fromCharCode(8594) + this.series.xAxis.categories[this.point.x] + '<br>' +
-                        this.point.value + ' ms</span>';
-                },
-                style: {
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    align: 'center'
-                }
-            },
-
-            series: [{
-                name: 'NETWORK LATENCY',
-                borderWidth: 1,
-                borderColor: '#fff',
-                data: [
-                    [0, 0, 95],
-                    [0, 1, 70],
-                    [0, 2, 'self'],
-                    [1, 0, 105],
-                    [1, 1, 'self'],
-                    [1, 2, 50],
-                    [2, 0, 'self'],
-                    [2, 1, 85],
-                    [2, 2, 110],
-                    ],
-                dataLabels: {
-                    enabled: true,
-                    color: 'rgba(0,0,0,0.3)',
-                    style: {
-                        fontSize: '30px'
-                    }
-                }
-            }],
-
-            rangeSelector: {
-                enabled: true,
-                buttons: [{
-                    count: 10,
-                    type: 'minute',
-                    text: '10M'
-                }, {
-                    count: 1,
-                    type: 'hour',
-                    text: '1H'
-                }, {
-                    count: 1,
-                    type: 'day',
-                    text: '1D'
-                }, {
-                    type: 'all',
-                    text: 'All'
-                }],
-                inputEnabled: false,
-                selected: 0
-            }
-
-        });
-    </script>
-
-    <script>
-        Highcharts.setOptions({
-            global: {
-                useUTC: false
-            }
-        });
-
-        // Create the chart
-        Highcharts.stockChart('container2', {
-            chart: {
-                events: {
-                    load: function () {
-
-                        // set up the updating of the chart each second
-                        var series = this.series[0];
-                        setInterval(function () {
-                            var x = (new Date()).getTime(), // current time
-                                y = Math.round(Math.random() * 100);
-                            series.addPoint([x, y], true, true);
-                        }, 1000);
-                    }
-                },
-                type: 'area'
-            },
-
-            rangeSelector: {
-                buttons: [{
-                    count: 1,
-                    type: 'minute',
-                    text: '1M'
-                }, {
-                    count: 5,
-                    type: 'minute',
-                    text: '5M'
-                }, {
-                    count: 1,
-                    type: 'hour',
-                    text: '1H'
-                }, {
-                    type: 'all',
-                    text: 'All'
-                }],
-                inputEnabled: false,
-                selected: 0
-            },
-
-            title: {
-                text: 'Network Latency (plan: click cell above to show data specific to that cell)'
-            },
-
-            exporting: {
-                enabled: false
-            },
-
-            series: [{
-                type: 'areaspline',
-                name: 'Random data',
-                data: (function () {
-                    // generate an array of random data
-                    var data = [],
-                        time = (new Date()).getTime(),
-                        i;
-
-                    for (i = -999; i <= 0; i += 1) {
-                        data.push([
-                            time + i * 1000,
-                            Math.round(Math.random() * 150)
-                        ]);
-                    }
-                    return data;
-                }())
-            }],
-
-            plotOptions: {
-                series: {
-                    color: 'rgba(244,67,54,0.8)',
-                    fillColor: 'rgba(244,67,54,0.4)'
-                }
-            }
-
-        });
-    </script>
+    <script type="text/javascript" src="js/chart-line.js"></script>
+    <!-- /SCRIPTS -->
 
 
 </body>

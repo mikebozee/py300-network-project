@@ -1,0 +1,39 @@
+#container *,
+.py300-container * {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
+}
+
+.py300-container {
+    height: 400px;
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+    display: none;
+}
+
+#BrazilSingapore {
+    display: block;
+}
+
+.highcharts-text-outline {
+    fill: none;
+    stroke: none;
+    stroke-width: 0;
+}
+
+.highcharts-plot-border,
+.highcharts-grid-line {
+    stroke: rgba(0,0,0,0.4);
+    stroke-width: 0;
+}
+
+.highcharts-input-group {
+    transform: translate(400, 40);
+}
+
+.py300-tooltip {
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    color: #fff;
+}
